@@ -143,7 +143,7 @@ If your computer's performance is good enough, you can enable this option.")
 	 (blank-length (max 0 (- max-translation-length candidate-length)))
 	 (dot-length (max 0 (- company-english-helper-candidate-max-width (- translation-length translation-format-length)))))
     ;; display the translation only in GUI mode Emacs on Windows,
-    (when (and *is-win* (display-graphic-p))
+    (when (and (eq system-type 'windows-nt) (display-graphic-p))
       (format "%s" (concat (make-string blank-length ?\ )
 			   translation
 			   (make-string dot-length ?\．))))
